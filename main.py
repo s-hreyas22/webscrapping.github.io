@@ -6,7 +6,7 @@ from transformers import PegasusForConditionalGeneration, PegasusTokenizer
 from nltk.sentiment import SentimentIntensityAnalyzer
 import csv
 import os
-
+import nltk
 nltk.download('vader_lexicon')
 
 def get_html(url):
