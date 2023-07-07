@@ -6,8 +6,7 @@ from transformers import PegasusForConditionalGeneration, PegasusTokenizer
 from nltk.sentiment import SentimentIntensityAnalyzer
 import csv
 import os
-import nltk
-nltk.download('vader_lexicon')
+
 
 def get_html(url):
 
@@ -62,7 +61,6 @@ def get_article_text(url):
     soup = BeautifulSoup(response , 'html.parser') 
     article_texts = []
     article_links = []
-
     # Find all the article elements on the page
     articles = soup.find_all('div', class_='gs-c-promo-body gel-1/2@xs gel-1/1@m gs-u-mt@m')
     for article in articles:
@@ -76,6 +74,7 @@ def get_article_text(url):
             url_part_1 = 'https://www.bbc.com'
             article_link = url_part_1 + article_link
             article_links.append(article_link)
+        break    
     
     # Visit each link and scrape the article data
     article_data = []
@@ -136,4 +135,8 @@ for text, link , data , sen in zip(article_texts, article_links, article_data,se
     print('Summarized Data:', data)
     print('Sentiment:',sen)
     print('-' * 50)
+"""
+"""
+- cron: '0 */3 * * *' # runs every 3 hours
+schedule:
 """
