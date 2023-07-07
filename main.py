@@ -62,6 +62,7 @@ def get_article_text(url):
     soup = BeautifulSoup(response , 'html.parser') 
     article_texts = []
     article_links = []
+    count = 0
     # Find all the article elements on the page
     articles = soup.find_all('div', class_='gs-c-promo-body gel-1/2@xs gel-1/1@m gs-u-mt@m')
     for article in articles:
@@ -75,7 +76,9 @@ def get_article_text(url):
             url_part_1 = 'https://www.bbc.com'
             article_link = url_part_1 + article_link
             article_links.append(article_link)
-        break    
+        count=count+1    
+        if(count==10):    
+            break    
     
     # Visit each link and scrape the article data
     article_data = []
