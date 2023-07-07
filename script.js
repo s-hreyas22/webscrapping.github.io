@@ -124,7 +124,6 @@ function generateNewsArticles() {
     }
   });
 }
-window.addEventListener("load", generateNewsArticles);
 
 
 
