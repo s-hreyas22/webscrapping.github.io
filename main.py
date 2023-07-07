@@ -7,6 +7,8 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 import csv
 import os
 
+nltk.download('vader_lexicon')
+
 def get_html(url):
 
     # Use Selenium to render JavaScript content
