@@ -1,5 +1,12 @@
 /* styles.css */
 
+/* Override the default link styling for all other links */
+a:-webkit-any-link {
+  color: inherit; /* Use the inherit keyword to retain the parent color */
+  cursor: pointer; /* Set the cursor to auto (default) */
+  text-decoration: none; /* Remove underline */
+}
+
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
@@ -61,6 +68,11 @@ h1 {
     margin-left: 0;
     text-align: center; /* Center content horizontally on smaller screens */
   }
+
+  .box {
+    width: calc(100% - 40px);
+    margin-right: 20px;
+  }
 }
 
 main {
@@ -116,8 +128,8 @@ main {
   font-family: 'Open Sans', sans-serif;
   background-color: #000;
   color: #888;
-  padding: 20px;
-  margin: 10px;
+  padding: 10px;
+  margin: 0px;
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, transform 0.3s ease;
@@ -128,7 +140,6 @@ main {
   color: #fff;
   transform: translateY(-5px);
 }
-
 .article-title {
   font-size: 24px;
   margin-bottom: 10px;
@@ -138,8 +149,31 @@ main {
   transition: color 0.3s ease;
 }
 
+.article-title:hover {  
+  color: #eae8e8; 
+}
+
 .box:hover .article-title {
-  color: #fff;
+  color: #e1e0e0;
+}
+
+.hover-3 {
+  --b: 0.1em;   /* the thickness of the line */
+  --c: #00bfff; /* the color */
+
+  color: #888;
+  padding-block: var(--b);
+  background: 
+    linear-gradient(var(--c) 50%,#000 0) 0% calc(100% - var(--_p,0%))/100% 200%,
+    linear-gradient(var(--c) 0 0) 0% var(--_p,0%)/var(--_p,0%) var(--b) no-repeat;
+  -webkit-background-clip: text,padding-box;
+  background-clip: text,padding-box;
+  transition: .3s var(--_s,0s) linear,background-size .3s calc(.3s - var(--_s,0s));
+}
+
+.hover-3:hover {
+  --_p: 100%;
+  --_s: .3s;
 }
 
 .article-content {
@@ -163,14 +197,6 @@ main {
   color: #fff;
 }
 
-/* Add responsive styles */
-@media screen and (max-width: 768px) {
-  .box {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-}
 
 /* Add animations */
 .fade-in {
