@@ -100,7 +100,7 @@ function generateNewsArticles() {
         articleBox.classList.add("box");
 
         const articleTitle = document.createElement("h2");
-        articleTitle.classList.add("article-title");
+        articleTitle.classList.add("article-title","hover-3");
 
         // Create a link for the heading
         const headingLink = document.createElement("a");
@@ -124,6 +124,7 @@ function generateNewsArticles() {
     }
   });
 }
+
 
 
 
