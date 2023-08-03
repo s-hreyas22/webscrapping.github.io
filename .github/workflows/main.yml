@@ -1,8 +1,5 @@
 name: Run main.py
-
-on: 
-      schedule:
-      - cron: '* * * * *' # runs every 1 min
+# runs every 1 minn
     
 
 jobs:
